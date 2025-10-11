@@ -1,0 +1,35 @@
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{here}
+
+% ここで geometry を再ロードせず、設定だけを与える
+\geometry{top=15mm,bottom=15mm,left=20mm,right=20mm}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{0.3\Cvs \@plus.2\Cdp \@minus.1\Cdp}%
+{0.2\Cvs \@plus.1\Cdp}%
+{\reset@font\large\bfseries}}
+\makeatother
+
+\begin{document}
+\begin{center}\Large\textbf{TITLE}\end{center}
+\vspace{0.5cm}
+\begin{flushright}
+Author\hspace{4cm}\\
+Date\hspace{4cm}
+\end{flushright}
+\section{S1} hogehoge
+\section{S2} hugahuga
+\section{S3} piyopiyo
+\section{S4} hugohugo
+\section{S5} poyopoyo
+\end{document}
