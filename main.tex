@@ -652,7 +652,7 @@ Expert Excluded 条件において，$\theta$ 掃引により得られる最良�
 2.7.2節に記載した手法に基づき，合成データによる事前学習モデル（以下，モデル$P$）およびアノテーション由来のGround Truthを用いたファインチューニングモデル（以下，モデル$T$）を構築した．両モデルの性能評価は，学習に使用していない検証用データセットを用いて実施し，(i) 検出性能，(ii) Ground Truthとモデル出力間の確信度整合性の2つの観点から定量的に評価した．評価においては，許容誤差の閾値$\tau_{\mathrm{px}} \in \{3, 5, 7\}$を変化させ，各条件下での性能変化を検証した．
 
 \subsubsection{検出性能の定量的評価}
-実験結果より，モデル$T$は全ての距離閾値条件においてモデル$P$を上回る性能を示し，この改善はPrecision-Recall曲線およびFree-Response Operating Characteristic (FROC)曲線の両指標で一貫して観測された（図\ref{fig:fig23}-a–f）．
+実験結果より，モデル$T$は全ての距離閾値条件においてモデル$P$を上回る性能を示し，この改善はPrecision-Recall曲線およびFree-Response Operating Characteristic (FROC)曲線の両指標で一貫して観測された（図\ref{fig:fig23}）．
 
 Area Under Precision-Recall Curve (AUPRC)を主要評価指標として採用した結果，$\tau_{\mathrm{px}} = 3$において$0.296$から$0.408$へ（$37.8\%$向上），$\tau_{\mathrm{px}} = 5$において$0.568$から$0.671$へ（$18.1\%$向上），$\tau_{\mathrm{px}} = 7$において$0.661$から$0.736$へ（$11.3\%$向上）の改善が確認された．また，F1スコアが最大となる動作点$\theta^*$における$F1(\theta^*)$値も，それぞれ$0.440$から$0.530$，$0.612$から$0.702$，$0.656$から$0.737$へと向上した．これらの結果は，特定の閾値設定に依存した局所的な改善ではなく，確信度に基づく候補点の順位付け性能が全体的に向上したことを示唆している．
 
@@ -956,6 +956,7 @@ Galaxy Zoo（Zooniverse）における分類（Classify）画面の例．
   \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{fig/fig7.png}
   \refstepcounter{figure}\label{fig:fig7}
 \end{figure}
+\clearpage
 本研究におけるクラウドソーシング用アノテーションデータセットの構成手順を示した．全脳画像とマウス脳アトラスを対応付け，座標—領域写像テーブルを構築した．先行研究でArc系シグナルの観察が報告される領域を参照し，Isocortex，olfactory areas，hippocampal formation，cortical subplate，striatumの5領域を抽出対象とした．領域別画像集合を格子状にクロップし，提示単位として500×500タイル画像を生成した．輝度分布に基づくフィルタリングを適用し，極端に暗い／情報量の乏しいタイルを除外した．得られたタイル集合を領域別に整理し，複数のデータセットへ分割してワーカ担当を割り当てた．全ワーカに共通して提示する品質管理用タイルを別途用意し，タスクへ付加した．データセットと品質管理用タイルを統合して提示タスクを構成し，冗長度設計にもとづきワーカへ割り当てた．
 
 
@@ -1032,7 +1033,8 @@ Galaxy Zoo（Zooniverse）における分類（Classify）画面の例．
   \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{fig/fig14.png}
   \refstepcounter{figure}\label{fig:fig14}
 \end{figure}
-本図は，細胞中心点アノテーションの統合処理における各段階の可視化例を示す．左は処理前に収集した全アノテーションの単純なオーバーレイ，中央はクラスタリング後に得られた細胞候補内のアノテーションの凸包の図示（色はクラスタごとにランダムに決定），右は統合処理後のヒートマップ（紫）のオーバーレイである．
+\clearpage
+本図は，細胞中心点アノテーションの統合処理における各段階の可視化例を示す．左は処理前に収集した全アノテーションの単純なオーバーレイ，中央はクラスタリング後に得られた細胞候補内のアノテーションの凸包の図示（色はクラスタごとにランダムに決定），右は統合処理後のヒートマップのオーバーレイである．
 
 \clearpage
 
@@ -1126,7 +1128,7 @@ QC画像におけるアノテーション量の一貫性に基づくワーカ群
   \refstepcounter{figure}\label{fig:fig23}
 \end{figure}
 \clearpage
-3種類の距離許容閾値（$\tau = 3, 5, 7$ピクセル）におけるPrecision-Recall曲線を示す．各行は特定の$\tau$値に対応し，左列にモデルP，右列にモデルTを配置して直接比較を可能にした．(a) モデルP，$\tau = 3\text{px}$（AUPRC = 0.296）(b) モデルT，$\tau = 3\text{px}$（AUPRC = 0.408）(c) モデルP，$\tau = 5\text{px}$（AUPRC = 0.568）(d) モデルT，$\tau = 5\text{px}$（AUPRC = 0.671）(e) モデルP，$\tau = 7\text{px}$（AUPRC = 0.661）(f) モデルT，$\tau = 7\text{px}$（AUPRC = 0.736）
+3種類の距離許容閾値（$\tau = 3, 5, 7$ピクセル）におけるPrecision-Recall曲線を示す．各行は特定の$\tau$値に対応し，赤線はモデルPを，青線はモデルTを表す．
 モデルTは全ての距離閾値においてモデルPを上回り，特に$\tau = 3\text{px}$では+37.8\%のAUPRC向上を示した．
 
 \clearpage
